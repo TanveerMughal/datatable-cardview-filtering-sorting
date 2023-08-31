@@ -4,6 +4,7 @@ import {
   load_data,
   paginate_data,
   sort_data,
+  update_checked,
   update_filters,
 } from "../Utils/actions";
 import { customSort } from "../Utils/helpers";
@@ -17,8 +18,9 @@ export type State = {
     search_query: string;
   };
   page: number;
-  paginatedData?: DataType[] | [];
-  noOfPages?: number;
+  paginatedData: DataType[] | [];
+  noOfPages: number;
+  checked: boolean;
 };
 
 export const initialState: State = {
@@ -32,6 +34,7 @@ export const initialState: State = {
   page: 1,
   paginatedData: [],
   noOfPages: 0,
+  checked: false,
 };
 
 type Action = {
@@ -132,6 +135,13 @@ export function reducer(state: State = initialState, action: Action): State {
       );
 
       return { ...state, filteredData: tempFilteredData };
+
+    // ************************************************************************************** update_checked
+
+    case update_checked:
+      const isChecked = action.payload;
+
+      return { ...state, checked: isChecked };
 
     default:
       return state;

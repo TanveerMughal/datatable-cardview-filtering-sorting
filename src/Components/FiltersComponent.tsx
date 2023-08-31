@@ -1,6 +1,8 @@
 import React from "react";
 import { State } from "../Reducer/reducer";
-import { update_filters } from "../Utils/actions";
+import { update_checked, update_filters } from "../Utils/actions";
+import { Context } from "../App";
+import { useContext } from "react";
 
 type FiltersComponentProps = {
   state: State;
@@ -8,6 +10,8 @@ type FiltersComponentProps = {
 };
 
 function FiltersComponent({ state, dispatch }: FiltersComponentProps) {
+  const context = useContext(Context);
+
   return (
     <div className="flex flex-col w-full justify-center items-center py-6">
       <div className="w-1/2 flex items-center">
@@ -78,6 +82,21 @@ function FiltersComponent({ state, dispatch }: FiltersComponentProps) {
       </div>
       <div className="w-1/2 py-6 flex justify-center items-center gap-3">
         <p>{state?.paginatedData?.length} items in view</p>
+      </div>
+      <div>
+        <label htmlFor="selectAll">Select All</label>
+        {"   "}
+        <input
+          type="checkbox"
+          name="selectAll"
+          id="selectAll"
+          onChange={(e) =>
+            context.dispatch({
+              type: update_checked,
+              payload: e.target.checked,
+            })
+          }
+        />
       </div>
     </div>
   );

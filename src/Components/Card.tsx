@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { DataType } from "../Api/data";
+import { useContext } from "react";
+import { Context } from "../App";
 
 type CardProps = {
   data: DataType;
 };
 
 function Card({ data }: CardProps) {
+  const { state } = useContext(Context);
   const {
     id,
     imageUrl,
@@ -19,7 +22,13 @@ function Card({ data }: CardProps) {
     price,
   } = data;
   return (
-    <div className="w-full aspect-[3/3] md:aspect-[3/4] rounded-xl border border-gray-500 overflow-hidden">
+    <div
+      className={`w-full aspect-[3/3] md:aspect-[3/4] rounded-xl overflow-hidden ${
+        state.checked
+          ? "bg-blue-300/50 border-red-500 border-2"
+          : "border border-gray-500"
+      }`}
+    >
       <Link to={`/${id}`}>
         <div className="w-full h-2/5 sm:h-3/5  overflow-hidden">
           <img src={imageUrl} alt="" className="w-full object-contain" />

@@ -2,6 +2,8 @@ import { DataType } from "../Api/data";
 import TableHeader from "./TableHeader";
 import { callbackParams } from "../Pages/Home";
 import { tableHeadTitles } from "../Utils/constants";
+import { useContext } from "react";
+import { Context } from "../App";
 
 type DatatableViewProps = {
   data: DataType[] | [];
@@ -67,6 +69,7 @@ function DatatableView({ data, sortData }: DatatableViewProps) {
                 propertyType={propertyType}
                 isCommercial={isCommercial}
                 price={price}
+                id={id}
               ></TableBody>
             );
           })}
@@ -87,11 +90,13 @@ type TableBodyProps = {
   isCommercial: boolean;
   price: number;
   key: string;
+  id: string;
 };
 
 function TableBody(props: TableBodyProps) {
+  const { state } = useContext(Context);
   return (
-    <tr>
+    <tr className={`${state.checked ? "bg-blue-300/50" : null}`}>
       <td>
         <img
           src={props.imageUrl}
