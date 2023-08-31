@@ -1,6 +1,6 @@
 import { HiOutlineTableCells } from "react-icons/hi2";
 import { HiOutlineViewGrid } from "react-icons/hi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type HeaderProps = {
   selectedView: string;
@@ -51,12 +51,14 @@ export function Header({ setSelectedView }: HeaderProps) {
         <button
           onClick={() => setView("datatable")}
           className="bg-gray-500 hover:bg-gray-200 px-3 rounded-l-lg transition-all group"
+          title="Table View"
         >
           <HiOutlineTableCells className="text-4xl text-white group-hover:text-black" />
         </button>
         <button
           onClick={() => setView("card")}
           className="bg-gray-500 hover:bg-gray-200 px-3 rounded-r-lg transition-all group"
+          title="Card View"
         >
           <HiOutlineViewGrid className="text-4xl text-white group-hover:text-black" />
         </button>

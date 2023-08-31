@@ -76,6 +76,9 @@ function FiltersComponent({ state, dispatch }: FiltersComponentProps) {
         />
         <p>{state?.filters?.maxPrice}</p>
       </div>
+      <div className="w-1/2 py-6 flex justify-center items-center gap-3">
+        <p>{state?.paginatedData?.length} items in view</p>
+      </div>
     </div>
   );
 }

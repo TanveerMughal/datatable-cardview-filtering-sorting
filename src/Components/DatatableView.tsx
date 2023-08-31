@@ -56,28 +56,58 @@ function DatatableView({ data, sortData }: DatatableViewProps) {
               price,
             } = item;
             return (
-              <tr key={id}>
-                <td>
-                  <img
-                    src={imageUrl}
-                    alt=""
-                    className="w-[120px] aspect-square mx-auto my-2 rounded-lg"
-                  />
-                </td>
-                <td>{title}</td>
-                <td>{address}</td>
-                <td>{beds}</td>
-                <td>{bath}</td>
-                <td>{coveredAreaSQFT}</td>
-                <td>{propertyType}</td>
-                <td>{isCommercial ? "Yes" : "No"}</td>
-                <td>{price}</td>
-              </tr>
+              <TableBody
+                key={id}
+                imageUrl={imageUrl}
+                title={title}
+                address={address}
+                beds={beds}
+                bath={bath}
+                coveredAreaSQFT={coveredAreaSQFT}
+                propertyType={propertyType}
+                isCommercial={isCommercial}
+                price={price}
+              ></TableBody>
             );
           })}
         </tbody>
       </table>
     </div>
+  );
+}
+
+type TableBodyProps = {
+  imageUrl: string;
+  title: string;
+  address: string;
+  beds: number;
+  bath: number;
+  coveredAreaSQFT: number;
+  propertyType: string;
+  isCommercial: boolean;
+  price: number;
+  key: string;
+};
+
+function TableBody(props: TableBodyProps) {
+  return (
+    <tr>
+      <td>
+        <img
+          src={props.imageUrl}
+          alt=""
+          className="w-[120px] aspect-square mx-auto my-2 rounded-lg"
+        />
+      </td>
+      <td>{props.title}</td>
+      <td>{props.address}</td>
+      <td>{props.beds}</td>
+      <td>{props.bath}</td>
+      <td>{props.coveredAreaSQFT}</td>
+      <td>{props.propertyType}</td>
+      <td>{props.isCommercial ? "Yes" : "No"}</td>
+      <td>{props.price}</td>
+    </tr>
   );
 }
 
