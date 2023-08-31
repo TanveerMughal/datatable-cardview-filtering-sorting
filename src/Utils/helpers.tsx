@@ -1,3 +1,4 @@
+// because sorting is only setup by default for strings in javascript
 export function customSort(a: any, b: any) {
   // Extract the letters and numbers from the strings
   const [aLetters, aNumbers] = a.match(/[a-zA-Z]+|\d+/g);

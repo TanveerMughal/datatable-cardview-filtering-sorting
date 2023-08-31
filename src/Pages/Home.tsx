@@ -1,11 +1,11 @@
 import CardView from "../Components/CardView";
 import DatatableView from "../Components/DatatableView";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Header } from "../Components/Header";
 import FiltersComponent from "../Components/FiltersComponent";
 import { Context } from "../App";
 import { useContext } from "react";
-import { filter_data, sort_data } from "../Utils/actions";
+import { sort_data } from "../Utils/actions";
 import Pagination from "../Components/Pagination";
 
 export type callbackParams = {
@@ -18,8 +18,6 @@ const defaultView = localStorage.getItem("selectedView") || "card";
 function Home() {
   const context = useContext(Context);
   const [selectedView, setSelectedView] = useState<string>(defaultView);
-
-  // because sorting is only setup by default for strings in javascript
 
   function sortData({ operation, orderBy }: callbackParams) {
     context.dispatch({

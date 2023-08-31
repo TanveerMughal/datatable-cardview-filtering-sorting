@@ -1,27 +1,18 @@
-# React + TypeScript + Vite
+# MaxGo Assessment Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Task List
 
-Currently, two official plugins are available:
+1. Setup two views Datatable and Listview
+2. Creating a mock API to get data from it.
+3. Setup sorting, filtering and pagination funcitonality.
+4. Check all the listings on either view.
+5. Setup a separate page to display a single property data.
+6. Setup Readme
+7. Use a github repo to share the code.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Notes:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Rather than manually typing the data, I have written a small script in data.ts to generate one for me which I later saved in data.json by copying from console.
+2. I am using React's useReducer hook to manage the state between filtersComponent, DataView and CardView.
+3. I understand that I was supposed to apply filtering and sorting only on datatable view but don't know why I am keeping it this way where both views have these functionalities.
+4. Using localstorage to store the view state so refreshing wont cause reset in state.

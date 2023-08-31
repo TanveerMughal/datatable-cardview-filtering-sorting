@@ -62,7 +62,7 @@ function FiltersComponent({ state, dispatch }: FiltersComponentProps) {
           name="maxPrice"
           id="maxPrice"
           min={0}
-          max={100000}
+          max={1_000_000}
           value={state?.filters?.maxPrice}
           onChange={(e) =>
             dispatch({
